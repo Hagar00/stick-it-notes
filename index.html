@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Reenie+Beanie&display=swap" rel="stylesheet"/>
+
+    <title>todo list </title>
+</head>
+<body>
+    <div class="heading">
+        <h1>Stick-It Notes</h1>
+        <p id="ts">By Hagar hassan</p>
+    </div>
+
+    <div id="form">
+        <form id="inputForm">
+          <input
+            type="text"
+            class="inputText"
+            placeholder="Title"
+            id="new-note-title-input"
+            autocomplete="off"
+            required
+            autofocus
+          />
+          <input
+            class="inputText"
+            type="text"
+            placeholder="Note Content"
+            id="new-note-body-input"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="btn">
+            Create Note
+          </button>
+        </form>
+    </div>
+
+    <h3 id="no-notes" class="hidden">No Notes Found, Add one!</h3>
+    <ul id="notes">
+        <li>
+            <a href="#"> 
+                <h2> title </h2>
+                <button class="delete"> x </button>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit Ullam.</p>
+            </a>
+        </li>
+    </ul>
+
+</body>
+</html>
