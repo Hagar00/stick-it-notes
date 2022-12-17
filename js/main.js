@@ -1,7 +1,9 @@
 // create note function  
-let count=0;
+let count= Number(window.localStorage.getItem("count"));
+if(!count){
+    window.localStorage.setItem("count","0");
+}
 function CreateNote(noteTitle, noteBody){
-    count+=1;
     // heddin no note div 
     document.getElementById("no-notes").classList.add("hidden");
     // create elements of ul 
@@ -45,11 +47,15 @@ function createNoteFromInput(e){
     let noteTitle = document.getElementById("new-note-title-input").value;
     let noteBody = document.getElementById("new-note-body-input").value;
     console.log( noteTitle, noteBody);
-    CreateNote(noteTitle , noteBody);
-
+    count +=1;
+    window.localStorage.setItem("count",count);
+    while (window.localStorage.getItem(noteTitle)) {
+        noteTitle = noteTitle + "-1";
+      }
+     window.localStorage.setItem(noteTitle, noteBody);
+     CreateNote(noteTitle , noteBody);
      noteTitle = document.getElementById("new-note-title-input").value = "";
      noteBody = document.getElementById("new-note-body-input").value = "";
-   
 }
 // create remove function
 function removeItem(e){
@@ -61,10 +67,22 @@ function removeItem(e){
         }
     }
     count-=1;
+    window.localStorage.setItem("count", count);
+    window.localStorage.removeItem(e.target.previousElementSibling.innerText);
     if(count <1 ){
         document.getElementById("no-notes").className="";
     }
 }
+// fetch data from local storage 
+for (i = 0; i < count + 1; i++) {
+    console.log(window.localStorage.key(i));
+    let noteTitle = window.localStorage.key(i);
+    let noteBody = window.localStorage.getItem(noteTitle);
+    if (noteTitle !== "count" && noteTitle) {
+        CreateNote(noteTitle, noteBody);
+    }
+  }
+
 document.getElementById("inputForm").addEventListener("submit", createNoteFromInput, false);
 document.getElementById("notes").addEventListener("click", removeItem);
 
