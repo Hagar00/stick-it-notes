@@ -1,3 +1,8 @@
+if ("serviceWorker" in navigator) {
+    // register service worker
+    navigator.serviceWorker.register("service-worker.js");
+  }
+  
 // create note function  
 let count= Number(window.localStorage.getItem("count"));
 if(!count){
