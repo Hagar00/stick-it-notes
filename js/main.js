@@ -63,7 +63,7 @@ function removeItem(e){
         if(confirm("are you sure delete it ..?? ")){
             let li= e.target.parentElement.parentElement;
             let ul= document.getElementById("notes");
-            ul.removeChild(li); 
+            ul.removeChild(li);
         }
     }
     count-=1;
